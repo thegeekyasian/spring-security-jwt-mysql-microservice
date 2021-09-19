@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "ad2697a2-92f4-4f85-8dd7-639c3524c22a",
+		"name": "Spring Security by TheGeekyAsian",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"thegeekyasian\",\r\n    \"password\" : \"password\",\r\n    \"confirm_password\" : \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server-endpoint}}/auth/register",
+					"host": [
+						"{{server-endpoint}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"thegeekyasian\",\r\n    \"password\" : \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server-endpoint}}/auth/login",
+					"host": [
+						"{{server-endpoint}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <TOKEN_HERE>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\" : \"password\",\r\n    \"new_password\" : \"updated_password\",\r\n    \"confirm_new_password\" : \"updated_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server-endpoint}}/users/change-password",
+					"host": [
+						"{{server-endpoint}}"
+					],
+					"path": [
+						"users",
+						"change-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh auth token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer <TOKEN_HERE>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"refresh_token\" : \"REFRESH_TOKEN_HERE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server-endpoint}}/auth/refresh",
+					"host": [
+						"{{server-endpoint}}"
+					],
+					"path": [
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get current user with token",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer <TOKEN_HERE>"
+					}
+				],
+				"url": {
+					"raw": "{{server-endpoint}}/users/me",
+					"host": [
+						"{{server-endpoint}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server-endpoint",
+			"value": "http://localhost:9000"
+		}
+	]
+}

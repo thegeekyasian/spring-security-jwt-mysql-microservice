@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: 01-01-01
+      author: thegeekyasian
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  autoIncrement: true
+
+              - column:
+                  name: created_at
+                  type: DATETIME
+
+              - column:
+                  name: updated_at
+                  type: DATETIME
+
+              - column:
+                  name: username
+                  type: VARCHAR(75)
+                  constraints:
+                    nullable: false
+                    unique: true
+
+              - column:
+                  name: password
+                  type: VARCHAR(150)
+
+              - column:
+                  name: user_role
+                  type: VARCHAR(50)
+
+              - column:
+                  name: password_updated_at
+                  type: DATETIME
