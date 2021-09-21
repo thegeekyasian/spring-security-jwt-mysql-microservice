@@ -4,12 +4,18 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.thegeekyasian.security.validators.annotations.ValidateChangePasswordRequest;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author thegeekyasian.com
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @ValidateChangePasswordRequest
 public class ChangePasswordRequest {
 
